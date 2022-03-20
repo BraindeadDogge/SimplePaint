@@ -45,6 +45,27 @@ def changehidden():
     else:
         t.showen = True
         t.showturtle()
+def eraser():
+    t.clear()
+def changeshape():
+    if t.form == 0:
+        t.form += 1
+        t.shape("triangle")
+    elif t.form == 1:
+        t.form += 1
+        t.shape("arrow")
+    elif t.form == 2:
+        t.form += 1
+        t.shape("turtle")
+    elif t.form == 3:
+        t.form += 1
+        t.shape("circle")
+    elif t.form == 4:
+        t.form += 1
+        t.shape("square")
+    else:
+        t.form = 0
+        t.shape("classic")
 
 
 t = Turtle()
@@ -54,6 +75,7 @@ t.ondrag(draw)
 t.speed(100)
 t.psize = 1
 t.showen = True
+t.form = 0
 
 scr = t.getscreen()
 scr.onscreenclick(move)
@@ -73,3 +95,5 @@ scr.onkey(bgcolor_w, "z")
 scr.onkey(bgcolor_b, "x")
 scr.onkey(bgcolor_a, "c")
 scr.onkey(changehidden, "space")
+scr.onkey(eraser, "e")
+scr.onkey(changeshape, "f")
