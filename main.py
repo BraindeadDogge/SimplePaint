@@ -1,4 +1,6 @@
 from turtle import *
+import turtle
+wm = turtle.Screen()
 
 def draw(x,y):
     t.goto(x,y)
@@ -30,6 +32,19 @@ def startfill():
     t.begin_fill()
 def finishfill():
     t.end_fill()
+def bgcolor_w():
+    wm.bgcolor("white")
+def bgcolor_b():
+    wm.bgcolor("black")
+def bgcolor_a():
+    wm.bgcolor("aquamarine")
+def changehidden():
+    if t.showen == True:
+        t.showen = False
+        t.hideturtle()
+    else:
+        t.showen = True
+        t.showturtle()
 
 
 t = Turtle()
@@ -38,6 +53,7 @@ t.color("blue")
 t.ondrag(draw)
 t.speed(100)
 t.psize = 1
+t.showen = True
 
 scr = t.getscreen()
 scr.onscreenclick(move)
@@ -53,3 +69,7 @@ scr.onkey(plus_pensize, "Up")
 scr.onkey(minus_pensize, "Down")
 scr.onkey(startfill, "Left")
 scr.onkey(finishfill, "Right")
+scr.onkey(bgcolor_w, "z")
+scr.onkey(bgcolor_b, "x")
+scr.onkey(bgcolor_a, "c")
+scr.onkey(changehidden, "space")
